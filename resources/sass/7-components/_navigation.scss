@@ -1,0 +1,346 @@
+/*
+================================================================================
+Main menu
+================================================================================
+*/
+
+$main-menu-breakpoint: 1000;
+$main-menu-link-padding-x: 0.5em;
+$main-menu-link-padding-y: 1.5em;
+
+.main-menu {
+    background-color: #fff;
+    border-bottom: 1px solid $color-border;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: rem(15);
+    position: relative;
+}
+
+.main-menu__container {
+    align-items: center;
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+}
+
+.main-menu__logo-img {
+    color: $color-text;
+    width: 320px;
+}
+
+
+/* Close button
+============================================================================= */
+
+.main-menu__close {
+    background-color: $color-gray-darken-5;
+    margin-bottom: 0;
+    text-align: right;
+
+    @include media($main-menu-breakpoint) {
+        display: none;
+    }
+}
+
+.main-menu__close-btn {
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    font-size: rem(13);
+    opacity: 0.7;
+    padding: 0.5em 1em 0.3em;
+    transition: opacity 150ms ease-out;
+
+    &:focus,
+    &:hover,
+    &:active {
+        opacity: 1;
+    }
+}
+
+.main-menu__close-icon {
+    height: 1.4em;
+    @include position(-1px null null null);
+    width: 1.4em;
+}
+
+
+/* Menu button
+============================================================================= */
+
+.main-menu__btn {
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    padding: 0.5em;
+
+    &:focus {
+        outline: 1px dotted $color-gray;
+    }
+
+    @include media($main-menu-breakpoint) {
+        display: none;
+    }
+}
+
+.main-menu__btn-icon {
+    @include hamburger;
+}
+
+
+/* List
+============================================================================= */
+
+.main-menu__list {
+    background-color: $color-gray-darken-4;
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    margin-left: auto;
+    min-width: 250px;
+    overflow-y: scroll;
+    @include position(fixed, 0 null null 0);
+    transform: translate(-100%, 0);
+    visibility: hidden;
+    width: 70vw;
+    z-index: 12;
+
+    &--closed {
+        animation: slide-out-left 200ms ease-out forwards;
+    }
+
+    &--open {
+        animation: slide-in-right 200ms ease-out forwards;
+    }
+
+    @include media($main-menu-breakpoint) {
+        background-color: transparent;
+        box-shadow: none;
+        display: block;
+        height: auto;
+        overflow-y: visible;
+        position: relative;
+        text-align: right;
+        transform: none;
+        visibility: visible;
+        width: auto;
+        z-index: 1;
+    }
+}
+.main-menu__li-no_border {
+    border-bottom:0px !important;
+}
+.main-menu__li {
+    border-bottom: 1px solid $color-gray-lighten-1;
+    transition: background-color 150ms ease-out;
+
+    /*&:last-child {
+        background-color: #fff;
+        border-bottom: 0;
+        padding: 1em 1.5em;
+    }*/
+
+    @include media($main-menu-breakpoint) {
+        border-bottom: 0;
+        display: inline-block;
+        margin: 0 0 0 2em;
+        position: relative;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            background-color: transparent;
+            margin-left: 0.5em;
+            margin-right: 0;
+        }
+    }
+
+    &--logo {
+        background-color: #fff;
+        padding: 10px 0;
+        text-align: center;
+
+        @include media($main-menu-breakpoint) {
+            display: none;
+        }
+    }
+}
+
+.main-menu__link,
+.main-menu__submenu-title {
+    background-color: $color-gray-lighten-3;
+    color: $color-text;
+    padding: ($main-menu-link-padding-y * 0.6) ($main-menu-link-padding-x * 2);
+    transition: background-color 150ms ease-out, padding-left 150ms ease-out;
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: #fff;
+        color: $color-primary;
+    }
+
+    @include media($main-menu-breakpoint) {
+        background-color: transparent;
+        padding: $main-menu-link-padding-y $main-menu-link-padding-x;
+        transition: none;
+
+        &:focus,
+        &:hover,
+        &:active {
+            background-color: transparent;
+            color: $color-primary;
+        }
+    }
+}
+
+.main-menu__link {
+    display: block;
+    position: relative;
+
+    &:focus,
+    &:hover,
+    &:active {
+        padding-left: $main-menu-link-padding-x * 2.4;
+        text-decoration: none;
+    }
+
+    @include media($main-menu-breakpoint) {
+        border-bottom: 2px solid transparent;
+        transition: border-color 50ms ease-out;
+
+        &:focus,
+        &:hover,
+        &:active {
+            border-color: $color-primary;
+            padding-left: $main-menu-link-padding-x;
+        }
+    }
+}
+
+.main-menu__login-btn {
+    @include button((
+        background-color: $color-primary,
+        text-color: #fff
+    ));
+    display: block;
+    text-align: center;
+}
+
+.main-menu__login-icon {
+    background: url("../img/icons/lock.svg") no-repeat left center;
+    color: $color-primary;
+    display: inline-block;
+    filter: invert(1);
+    height: 1em;
+    margin-right: 0.25em;
+    @include position(relative, -2px null null null);
+    vertical-align: middle;
+    width: 1em;
+
+    @include media($main-menu-breakpoint) {
+        filter: invert(1);
+    }
+}
+
+.main-menu__submenu-title {
+    margin-bottom: 0;
+    padding-left: $main-menu-link-padding-x * 2 - 0.3em;
+
+    &::before {
+        background: url("../img/icons/chevron-down.svg") no-repeat center center;
+        background-size: 1em;
+        color: $color-text;
+        content: "";
+        display: inline-block;
+        height: 1em;
+        margin: -0.2em 0.2em 0 0;
+        opacity: 0.8;
+        transition: transform 150ms ease-out;
+        vertical-align: middle;
+        width: 1em;
+    }
+
+    &--active::before {
+        transform: rotate(-180deg);
+    }
+
+    @include media($main-menu-breakpoint) {
+        &::before {
+            transform: rotate(0);
+        }
+    }
+}
+
+
+/* List logo
+============================================================================= */
+
+.main-menu__list-logo-img {
+    display: inline-block;
+    position: relative;
+    width: 320px;
+}
+
+
+/* Submenu
+============================================================================= */
+
+.main-menu__submenu {
+    display: none;
+    text-align: left;
+
+    @include media($main-menu-breakpoint) {
+        border: 1px solid $color-border;
+        border-top: 2px solid $color-primary;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        min-width: 200px;
+        @include position(absolute, 100% null null 0);
+
+        .main-menu__submenu-title[aria-expanded="true"] + &,
+        .main-menu__li:active > &,
+        .main-menu__li:hover > & {
+            display: block;
+        }
+    }
+}
+
+.main-menu__submenu-item {
+    border-bottom: 1px solid $color-gray-lighten-2;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+.main-menu__submenu-link {
+    background-color: #fff;
+    color: $color-text;
+    display: block;
+    padding: ($main-menu-link-padding-y * 0.6) ($main-menu-link-padding-x * 2) ($main-menu-link-padding-y * 0.6) ($main-menu-link-padding-x * 2.4);
+    transition: color 150ms ease-out, padding-left 150ms ease-out;
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: $color-gray-lighten-5;
+        color: $color-primary;
+        padding-left: $main-menu-link-padding-x * 3;
+        text-decoration: none;
+    }
+
+    @include media($main-menu-breakpoint) {
+        background-color: $color-gray-lighten-5;
+        padding: ($main-menu-link-padding-y * 0.6) ($main-menu-link-padding-x * 2);
+
+        &:focus,
+        &:hover,
+        &:active {
+            background-color: #fff;
+            padding-left: $main-menu-link-padding-x * 2;
+        }
+    }
+}

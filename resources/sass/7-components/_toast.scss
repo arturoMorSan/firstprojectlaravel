@@ -1,0 +1,183 @@
+/*
+================================================================================
+Toast
+================================================================================
+*/
+
+.toast-container {
+    margin: 0 10px;
+    max-width: calc(100% - 20px);
+    width: 350px;
+    z-index: 6;
+
+    &--bottom-left  { @include position(fixed, null null 20px 0); }
+    &--bottom-right { @include position(fixed, null 0 20px null); }
+    &--top-left     { @include position(fixed, 20px null null 0); }
+    &--top-right    { @include position(fixed, 20px 0 null null); }
+
+    @include media(400) {
+        margin: 0 20px;
+        max-width: calc(100% - 40px);
+    }
+}
+
+.toast-container > * {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.toast {
+    align-items: center;
+    background-color: $color-gray-30;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    display: flex;
+    font-size: rem(14);
+    line-height: 1.4;
+    margin-bottom: $spacer * 0.5;
+    max-width: 350px;
+    padding: 0.75em 0.5em 0.75em 1em;
+    position: relative;
+    transform-origin: right bottom;
+    transition: all 1s;
+    width: 100%;
+
+    &--info {
+        background-color: $color-info-light;
+        border-color: $color-info-border;
+        color: $color-info-text;
+    }
+
+    &--danger {
+        background-color: $color-danger-light;
+        border-color: $color-danger-border;
+        color: $color-danger-text;
+    }
+
+    &--success {
+        background-color: $color-success-light;
+        border-color: $color-success-border;
+        color: $color-success-text;
+    }
+
+    &--warning {
+        background-color: $color-warning-light;
+        border-color: $color-warning-border;
+        color: $color-warning-text;
+    }
+}
+
+
+/* With icons
+============================================================================= */
+
+/*
+ * Emphasize the text with a status icon.
+ */
+.toast--has-icon {
+    background-position: 1em center;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+
+    &.toast--info    { background-image: url(icon-info($size: 23)); }
+    &.toast--success { background-image: url(icon-check()); }
+    &.toast--warning { background-image: url(icon-solid-warning($color-warning)); }
+    &.toast--danger  { background-image: url(icon-error($size: 23)); }
+}
+
+
+/* Close button
+============================================================================= */
+
+.toast__btn {
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0;
+    font-size: rem(14);
+    justify-self: flex-end;
+    margin-left: 0.75em;
+    opacity: 0.8;
+    padding: 1em;
+
+    &:focus,
+    &:hover,
+    &:active {
+        opacity: 1;
+    }
+
+    .toast--danger &  { background-image: url(icon-close($color-danger-text, 16px)); }
+    .toast--info &    { background-image: url(icon-close($color-info-text, 16px)); }
+    .toast--success & { background-image: url(icon-close($color-success-text, 16px)); }
+    .toast--warning & { background-image: url(icon-close($color-warning-text, 16px)); }
+}
+
+
+/* Progress bar
+============================================================================= */
+
+.toast__progress {
+    height: 2px;
+    @include position(absolute, null null 0 0);
+    transform: scaleX(0);
+    transform-origin: left center;
+    width: 100%;
+
+    .toast--danger &  { background-color: $color-danger; }
+    .toast--info &    { background-color: $color-info; }
+    .toast--success & { background-color: $color-success; }
+    .toast--warning & { background-color: $color-warning; }
+}
+
+
+@keyframes toast-progress {
+    0%   { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+
+
+/* Animations
+============================================================================= */
+
+.toast--enter {
+    animation: toast-enter 500ms ease-in-out forwards;
+}
+
+.toast--leave-to {
+    animation: toast-leave 500ms ease-in-out forwards, toast-leave-space 300ms ease-in-out forwards 500ms;
+}
+
+@keyframes toast-enter {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toast-leave {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(40px);
+
+    }
+}
+
+@keyframes toast-leave-space {
+    100% {
+        border: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}

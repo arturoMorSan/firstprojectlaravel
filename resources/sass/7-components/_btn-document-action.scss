@@ -1,0 +1,100 @@
+/*
+================================================================================
+Document action button
+================================================================================
+*/
+
+.document-action {
+    display: inline-block;
+    position: relative;
+}
+
+.document-action__btn {
+    align-items: center;
+    color: $color-link;
+    cursor: pointer;
+    display: inline-flex;
+    flex-grow: 0;
+    font-size: rem(13);
+    justify-content: center;
+    padding: 0.5em 2em;
+
+    &:focus,
+    &:hover,
+    &:active {
+        background-color: $color-gray-10;
+        color: $color-link;
+    }
+
+    :focus-visible + & {
+        outline: 2px solid $color-blue-50;
+    }
+
+    @include media(lg) {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    &--approve {
+        color: $color-success;
+
+        &:focus,
+        &:hover,
+        &:active {
+            background-color: $color-success-light;
+            color: $color-success;
+        }
+
+        :checked + & {
+            background-color: $color-success;
+            color: #fff;
+        }
+    }
+
+    &--reject {
+        color: $color-danger;
+
+        &:focus,
+        &:hover,
+        &:active {
+            background-color: $color-danger-light;
+            color: $color-danger;
+        }
+
+        :checked + & {
+            background-color: $color-danger;
+            color: #fff;
+        }
+    }
+}
+
+.document-action__container {
+    display: inline-flex;
+    margin-left: 0.5rem;
+
+    @include media-until(sm) {
+        justify-content: space-between;
+
+        & .document-action {
+            width: 50%;
+        }
+
+        & .document-action__btn {
+            width: 100%;
+        }
+    }
+
+    @include media-until(lg) {
+        margin-left: 0;
+        width: 100%;
+
+        .document-action__btn + & {
+            margin-top: 0.75rem;
+        }
+    }
+}
+
+.document-action input {
+    opacity: 0;
+    @include position(absolute, 0 null null 0);
+}

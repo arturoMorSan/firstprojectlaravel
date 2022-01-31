@@ -1,0 +1,73 @@
+/*
+================================================================================
+Footer
+================================================================================
+*/
+
+.main-footer {
+    background-color:#799915;
+    font-size: rem(14);
+}
+
+.sub-footer {
+    background: #98c11b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.main-footer__link-ujed {
+    margin-right: 60px;
+
+    @include media(sm) {
+        margin-right: 130px;
+    }
+}
+
+.main-footer__icon {
+    margin-right: 0.25em;
+    @include position(relative, -0.15em null null null);
+    width: 1.2em;
+}
+
+.main-footer__logo {
+    height: 50px;
+
+    &--educacion {
+        height: 60px;
+        margin: 10px auto 10px;
+        margin-right: 60px;
+        @include media(200, 415) {
+            margin: 0 auto;
+            margin-bottom: 30px;
+            display: block;
+        }
+    }
+
+    &--utyp {
+        height: 60px;
+        margin: 10px auto 10px;
+        margin-right: 60px;
+        @include media(200, 415) {
+            margin: 0 auto;
+            margin-bottom: 30px;
+            display: block;
+        }
+    }
+    &--dgo {
+        height: 65px;
+        margin: 10px auto 10px;
+        @include media(200, 415) {
+            margin: 0 auto;
+            margin-bottom: 30px;
+            display: block;
+        }
+    }
+}
+
+.main-footer a {
+    color: $color-text;
+}

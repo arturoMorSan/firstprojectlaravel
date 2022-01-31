@@ -1,0 +1,17 @@
+<mj-section background-color="#99c11a"
+    border=""
+    padding="10px"
+    css-class="header"
+>
+    <mj-column>
+    </mj-column>
+</mj-section>
+<mj-section background-color="#fff"
+    border=""
+    padding="0"
+    css-class="header-email"
+>
+    <mj-column>
+        <mj-image css-class="padding-top-ujed" src="{{ asset('img/emails/logo_unipoli.png') }}" width="300px" alt="Unipoli">
+    </mj-column>
+</mj-section>

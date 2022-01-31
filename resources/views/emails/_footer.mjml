@@ -1,0 +1,21 @@
+<mj-section>
+    <mj-column>
+        <mj-text
+            align="center"
+            font-size="13px"
+            line-height="20px"
+            padding-bottom="30px"
+            padding-top="0"
+        >
+        </mj-text>
+        <mj-divider></mj-divider>
+        <mj-text
+            align="center"
+            font-size="11px"
+        >
+            <p style="margin-top: 0">
+                Si recibiste este correo por error o tienes alguna duda por favor escríbenos a <a class="link" href="mailto:sistemas@unipolidgo.edu.mx">sistemas@unipolidgo.edu.mx</a>
+            </p>
+        </mj-text>
+    </mj-column>
+</mj-section>

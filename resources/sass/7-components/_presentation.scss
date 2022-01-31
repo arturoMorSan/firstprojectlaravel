@@ -1,0 +1,36 @@
+.presentation-container {
+    background: url("../img/unipoli.png") center center no-repeat;
+    background-size: cover;
+    display: inline-block;
+    height: auto;
+    width: 100%;
+}
+
+
+.presentation-section {
+    height: 300px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.presentation-img {
+    margin:0 auto;
+    display: block;
+}
+
+.presentation-overlay {
+	background: #000000b0;
+    display: inline-block;
+    height: auto;
+    width: 100%;
+}
+
+.presentation-title {
+	color:#ffffff;
+	margin-bottom: 3em;
+}
+
+.presentation-text {
+	color:#E7E9EC;
+}
+

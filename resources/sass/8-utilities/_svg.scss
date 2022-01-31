@@ -1,0 +1,64 @@
+/*
+================================================================================
+SVG color
+================================================================================
+*/
+
+@each $affix, $min-width in utility-breakpoints("svg") {
+    @include media($min-width) {
+
+        /*
+         * Combine with a text-color utility to set the fill color of an SVG.
+         *
+         * Credit: https://tailwindcss.com
+         */
+        #{set-affix("fill-current", $affix)} {
+            fill: currentColor !important;
+        }
+
+        /*
+         * Combine with a text-color utility to set the stroke color of an SVG.
+         *
+         * Credit: https://tailwindcss.com
+         */
+        #{set-affix("stroke-current", $affix)} {
+            stroke: currentColor !important;
+        }
+
+    }
+}
+
+
+/*
+================================================================================
+SVG size
+================================================================================
+*/
+
+$utility-svg-sizes: (
+    "auto": auto,
+    "1": 0.25em,
+    "2": 0.5em,
+    "3": 0.75em,
+    "4": 1em,
+    "5": 1.25em,
+    "6": 1.5em,
+    "7": 1.75em,
+    "8": 2em
+) !default;
+
+
+@each $affix, $min-width in breakpoints() {
+    @include media($min-width) {
+
+        @each $name, $value in $utility-svg-sizes {
+            #{set-affix(#{"svg-w-" + fraction-to-class-name($name)}, $affix)} {
+                & > * {
+                    height: $value !important;
+                    width: $value !important;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,33 @@
+.sponsors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include media(500) {
+        justify-content: space-between;
+    }
+
+    &_container {
+        max-height: 200px;
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    &_img {
+        filter: grayscale(1) opacity(70%);
+        max-height: 150px;
+        
+        &:hover {
+            filter: grayscale(0) opacity(100%)
+        }
+    }
+
+    &_img--smaller {
+        max-height: 110px;
+    }
+}

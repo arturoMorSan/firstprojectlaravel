@@ -1,0 +1,27 @@
+
+.form-boxed {
+    background-color: #f9fafa;
+    border: 1px solid #e0e3e6;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    padding: 1.5rem;
+    margin: 0 auto 1rem;
+}
+
+.form-w-300 {
+    max-width: 300px;
+}
+
+.login-form {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

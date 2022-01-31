@@ -1,0 +1,10 @@
+stages:
+  - deploy
+
+deploy-job:
+  stage: deploy
+  script:
+    - cd $APP_PATH
+    - git pull origin master
+  only:
+    - master

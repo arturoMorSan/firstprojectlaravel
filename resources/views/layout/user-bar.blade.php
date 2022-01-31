@@ -1,0 +1,67 @@
+@auth
+    <user-bar inline-template v-cloak
+        :dashboard-menu-is-visible="menuIsVisible"
+        @toggle-menu="toggleMenu"
+    >
+        <section class="user-bar">
+            <a class="user-bar__dashboard-link" href="{{ url('admin') }}" v-if="! atDashboard">
+                Panel de administración
+            </a>
+
+            <button id="user-bar-btn"
+                class="user-bar__btn"
+                :aria-expanded="dashboardMenuIsVisible ? 'true' : 'false'"
+                aria-controls="dashboard-menu"
+                @click="$emit('toggle-menu')"
+                v-if="atDashboard"
+            >
+                <span class="user-bar__btn-icon">
+                    <span></span>
+                </span>
+
+                <span class="user-bar__btn-text">Menú</span>
+
+                <span class="visually-hidden">
+                    <template v-if="dashboardMenuIsVisible">Ocultar menú</template>
+                    <template v-else>Mostrar menú</template>
+                </span>
+            </button>
+
+            <div class="user-bar__profile" @mouseenter="profileMenuVisible = true" @mouseleave="profileMenuVisible = false">
+                <div class="user-bar__avatar-container">
+                    <img class="user-bar__avatar" src="{{ asset('archivos/avatars/' . ($authUser->avatar ?: 'default.png')) }}" alt="">
+                </div>
+
+                <p class="user-bar__user-name">
+                    {{ $authUser->name }} {{ $authUser->last_name }}
+                </p>
+
+                <transition
+                    enter-active-class="user-bar__profile-menu--show"
+                    leave-active-class="user-bar__profile-menu--hide"
+                >
+                    <ul class="user-bar__profile-menu" v-show="profileMenuVisible">
+                        <li class="user-bar__profile-menu-item">
+                            <a class="user-bar__profile-menu-link" href="{{ url('admin/perfil/editar') }}">
+                                Actualizar perfil
+                            </a>
+                        </li>
+
+                        <li class="user-bar__profile-menu-item">
+                            <a class="user-bar__profile-menu-link" href="{{ url('admin/perfil/cambiar-contrasena') }}">
+                                Cambiar contraseña
+                            </a>
+                        </li>
+
+                        <li class="user-bar__profile-menu-item">
+                            <a class="user-bar__profile-menu-link user-bar__profile-menu-link--logout" href="{{ url('cerrar-sesion') }}">
+                                <svg class="user-bar__logout-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"><path fill="none" stroke-width="1.885" stroke-linecap="round" stroke-miterlimit="10" d="M3.348 4.949a5.433 5.433 0 1 0 8.296 0"/><path fill="none" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M7.5 1v5"/></svg>
+                                Cerrar sesión
+                            </a>
+                        </li>
+                    </ul>
+                </transition>
+            </div>
+        </section>
+    </user-bar>
+@endauth

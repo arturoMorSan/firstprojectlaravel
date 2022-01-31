@@ -1,0 +1,7 @@
+.program__align-text {
+    text-align: left;
+    @include media(md) {
+        text-align: center;
+    }
+    
+}

@@ -7,8 +7,6 @@ import GalleryCard from './components/GalleryCard.vue';
 import GalleryLink from './components/GalleryLink.vue';
 import UserBar from '../admin/components/UserBar.vue';
 import TruncatedText from './components/TruncatedText.vue';
-import AttendeesForm from './components/forms/attendees/AttendeesForm.vue';
-import DocumentForm from './components/forms/DocumentForm.vue';
 import Tabs from './components/tabs/Tabs.vue';
 
 import Toasts from '../admin/components/toast/Toasts.vue';
@@ -19,8 +17,6 @@ import Toasts from '../admin/components/toast/Toasts.vue';
     ------------------------------------------------------------------------- */
     Vue.component('base-form', BaseForm);
     Vue.component('contact-form', ContactForm);
-    Vue.component('attendees-form', AttendeesForm);
-    Vue.component('document-form', DocumentForm);
 
 
     /* App components

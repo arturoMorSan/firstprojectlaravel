@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'correoweb@unipolidgo.edu.mx'),
-        'name' => env('MAIL_FROM_NAME', 'Correo UNIPOLI'),
+        'address' => env('MAIL_FROM_ADDRESS', 'correoweb@ujed.mx'),
+        'name' => env('MAIL_FROM_NAME', 'Correo UJED'),
     ],
 
     /*

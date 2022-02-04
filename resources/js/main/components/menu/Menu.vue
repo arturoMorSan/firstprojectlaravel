@@ -2,7 +2,7 @@
     <nav id="main-menu" class="main-menu" role="navigation">
         <div class="container main-menu__container">
             <a class="main-menu__logo" :href="$root.path" title="Inicio">
-                <img class="main-menu__logo-img" :src="$root.path + '/img/header/logo_unipoli.png'" alt="Unipoli">
+                <img class="main-menu__logo-img" :src="$root.path + '/img/header/logo-ujed.png'" alt="ujed">
             </a>
 
             <button id="main-menu-btn" class="main-menu__btn" type="button"
@@ -43,7 +43,7 @@
                     <a class="js-item main-menu__list-logo" :href="this.$root.path"
                         @keydown.left.right.up.down.prevent="arrowNavigation"
                     >
-                        <img class="main-menu__list-logo-img" :src="$root.path + '/img/header/logo_unipoli.png'" alt="UNIPOLI">
+                        <img class="main-menu__list-logo-img" :src="$root.path + '/img/header/logo-ujed.png'" alt="UJED">
                     </a>
                 </li>
 

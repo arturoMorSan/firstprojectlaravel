@@ -5,12 +5,12 @@ Footer
 */
 
 .main-footer {
-    background-color:#799915;
+    background-color: $color-primary;
     font-size: rem(14);
 }
 
 .sub-footer {
-    background: #98c11b;
+    background: darken($color-primary, 5%);
     color: #fff;
     display: flex;
     align-items: center;
